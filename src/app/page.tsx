@@ -9,12 +9,12 @@ export default function Home() {
 
   const fetchData = async () => {
     try {
-      const response = await fetch("/api/fetch-laws"); 
+      const response = await fetch("/api/fetch-laws");
       const result = await response.json();
 
       if (result.success) {
-        setData(result.data.value || []); 
-      } 
+        setData(result.data.value || []);
+      }
 
     } catch (error) {
       console.error("Error fetching data:", error);
@@ -27,8 +27,8 @@ export default function Home() {
 
 
   return (
-    <div className="container max-w-full p-4">
-      <h1 className="text-2xl font-bold mb-4">Kanban Board of the Laws</h1>
+    <div className="container max-w-full p-6 h-screen bg-gray-50">
+      <h1 className="text-3xl font-bold mb-8 text-center text-blue-800">Kanban Board of the Laws</h1>
       <KanbanBoard sager={data} />
     </div>
   );

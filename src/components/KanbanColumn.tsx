@@ -7,27 +7,40 @@ interface KanbanColumnProps {
 }
 
 export default function KanbanColumn({ statusId, sager }: KanbanColumnProps) {
-  const getStatusName = (statusId: number) => {
+  const getStatusColor = (statusId: number) => {
     switch (statusId) {
       case 11:
-        return "Vedtaget";
+        return "bg-green-100 border-green-300";
       case 13:
-        return "Under behandling";
+        return "bg-blue-100 border-blue-300";
       case 16:
-        return "Forkastet";
+        return "bg-red-100 border-red-300";
       default:
-        return `Status ${statusId}`;
+        return "bg-gray-100 border-gray-300";
     }
   };
 
   return (
-    <div className="flex-shrink-0 w-80 bg-gray-100 rounded-lg p-4">
-      <h2 className="font-bold mb-4">{getStatusName(statusId)}</h2>
-      <div className="space-y-2">
+    <div className={`flex-shrink-0 w-96 ${getStatusColor(statusId)} rounded-lg p-4 h-full flex flex-col border-2`}>
+      <h2 className="font-bold mb-4 text-lg">{getStatusName(statusId)}</h2>
+      <div className="flex-1 overflow-y-auto pr-2 space-y-3">
         {sager.map((sag) => (
           <KanbanCard key={sag.id} sag={sag} />
         ))}
       </div>
     </div>
   );
+}
+
+function getStatusName(statusId: number) {
+  switch (statusId) {
+    case 11:
+      return "Vedtaget";
+    case 13:
+      return "Under behandling";
+    case 16:
+      return "Forkastet";
+    default:
+      return `Status ${statusId}`;
+  }
 }
