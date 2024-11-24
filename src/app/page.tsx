@@ -13,7 +13,7 @@ export default function Home() {
       const result = await response.json();
 
       if (result.success) {
-        setData(result.data.value || []);
+        setData(result.data || []);
       }
 
     } catch (error) {
