@@ -1,0 +1,31 @@
+export interface Sag {
+    id: number;
+    typeid: number;
+    kategoriid: number;
+    statusid: number;
+    titel: string;
+    titelkort: string;
+    offentlighedskode: string;
+    nummer: string;
+    nummerprefix: string;
+    nummernumerisk: string;
+    nummerpostfix?: string;
+    resume?: string;
+    afstemningskonklusion?: string;
+    periodeid: number;
+    afgorelsesresultatkode?: string;
+    baggrundsmateriale?: string;
+    opdateringsdato: Date;
+    statsbudgetsag: boolean;
+    begrundelse?: string;
+    paragrafnummer?: number;
+    paragraf?: string;
+    afgorelsesdato?: Date;
+    afgorelse?: string;
+    raadsmodedato?: Date;
+    lovnummer?: string;
+    lovnummerdato?: Date;
+    retsinformationsurl?: string;
+    fremsatundersagid?: number;
+    deltundersagid?: number;
+}
